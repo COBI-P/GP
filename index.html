@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>휴대폰성지 굳폰 | 전국 최저가 시세</title>
+    <title>휴대폰성지 굳폰 | 전국 최저가 성지</title>
     <style>
         :root {
             --primary: #1E3A8A;       /* 신뢰감을 주는 딥블루 */
@@ -40,15 +40,39 @@
             margin: 0 auto;
         }
 
-        /* 글로벌 네비게이션 바 (상단 바 투명블러 처리) */
+        /* [추가] 최상단 흐르는 공지 배너 */
+        .ticker-wrapper {
+            background: linear-gradient(90deg, #0f172a 0%, #1e3a8a 100%);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 0;
+            overflow: hidden;
+            position: relative;
+            white-space: nowrap;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .ticker-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: ticker 25s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        /* 글로벌 네비게이션 바 */
         header {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid #E2E8F0;
-            transition: all 0.3s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
         }
 
         header .container {
@@ -92,7 +116,7 @@
             color: var(--primary-light);
         }
 
-        /* 히어로 섹션 - 고급스러운 그라데이션 여백 */
+        /* 히어로 섹션 */
         .hero-section {
             background: radial-gradient(circle at top right, #EFF6FF 0%, #FFFFFF 100%);
             padding: 100px 0 80px 0;
@@ -109,6 +133,7 @@
             padding: 6px 16px;
             border-radius: 30px;
             margin-bottom: 24px;
+            box-shadow: 0 2px 4px rgba(59, 130, 246, 0.1);
         }
 
         .hero-content h2 {
@@ -134,7 +159,7 @@
         .btn-main {
             display: inline-flex;
             align-items: center;
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
             color: #FFFFFF;
             padding: 16px 36px;
             text-decoration: none;
@@ -142,11 +167,11 @@
             border-radius: 12px;
             font-size: 16px;
             box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.2);
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
         }
 
         .btn-main:hover {
-            background-color: var(--primary-light);
+            background: linear-gradient(135deg, var(--primary-light) 0%, #2563eb 100%);
             transform: translateY(-2px);
             box-shadow: 0 10px 20px -3px rgba(59, 130, 246, 0.3);
         }
@@ -169,7 +194,6 @@
             color: var(--text-muted);
         }
 
-        /* 실시간 관리 상태를 보여주는 반짝이는 뱃지 */
         .update-badge {
             display: inline-flex;
             align-items: center;
@@ -178,10 +202,11 @@
             color: white;
             font-size: 12px;
             font-weight: 700;
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 6px;
             margin-top: 10px;
             animation: pulse 2s infinite;
+            box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
         }
 
         @keyframes pulse {
@@ -190,19 +215,26 @@
             100% { opacity: 1; }
         }
 
-        /* 시세표 섹션 - 테두리를 없애고 라운딩 처리한 모던 테이블 */
+        /* 시세표 섹션 */
         .price-section {
             padding: 90px 0;
             background-color: #FFFFFF;
         }
 
+        /* [수정] 카드 컴포넌트에 부드러운 호버 모션 가미 */
         .table-wrapper {
             background: var(--bg-main);
             padding: 24px;
             border-radius: 16px;
             margin-bottom: 40px;
             border: 1px solid #E2E8F0;
-            overflow-x: auto; /* 모바일에서 가로 스크롤을 보장하여 레이아웃 깨짐 방지 */
+            overflow-x: auto;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .table-wrapper:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.05);
         }
 
         .provider-header {
@@ -222,7 +254,6 @@
             gap: 8px;
         }
 
-        /* 3사 고유 컬러 포인트 */
         .skt-title { color: #E50015; }
         .kt-title { color: #00B0B2; }
         .lgu-title { color: #E6007E; }
@@ -235,7 +266,7 @@
             border-radius: 20px;
             border: 1px solid #E2E8F0;
             font-weight: 500;
-            white-space: nowrap; /* 글자 줄바꿈 방지 */
+            white-space: nowrap;
         }
 
         table {
@@ -243,7 +274,7 @@
             border-collapse: separate;
             border-spacing: 0 8px;
             text-align: center;
-            min-width: 500px; /* 모바일에서 표가 심하게 찌그러지는 것 방지 */
+            min-width: 500px;
         }
 
         th {
@@ -270,7 +301,7 @@
             font-weight: 700;
             text-align: left;
             padding-left: 20px;
-            color: var(--text-dark);
+            color: #1e293b; /* 가독성 좋은 다크 톤 */
         }
 
         td:last-child {
@@ -296,14 +327,21 @@
             background-color: var(--bg-main);
         }
 
+        /* [수정] 안내 카드 컴포넌트 호버 스타일 강화 */
         .contact-card {
             background: #FFFFFF;
             padding: 40px;
             border-radius: 24px;
             max-width: 680px;
             margin: 0 auto;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.03), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
             border: 1px solid #E2E8F0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.06);
         }
 
         .info-row {
@@ -331,12 +369,13 @@
             font-size: 16px;
         }
 
+        /* 카카오톡 상담 버튼 입체감 강화 */
         .btn-kakao {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            background-color: #FEE500;
+            background: linear-gradient(135deg, #FEE500 0%, #fada0a 100%);
             color: #191919;
             padding: 16px;
             text-decoration: none;
@@ -345,12 +384,13 @@
             margin-top: 30px;
             font-size: 16px;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(254, 229, 0, 0.3);
+            box-shadow: 0 4px 14px rgba(254, 229, 0, 0.4);
         }
 
         .btn-kakao:hover {
-            background-color: #FADA0A;
+            background: linear-gradient(135deg, #FADA0A 0%, #e6cc00 100%);
             transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(254, 229, 0, 0.5);
         }
 
         /* 푸터 */
@@ -363,7 +403,7 @@
             border-top: 1px solid #1E293B;
         }
 
-        /* 📱 모바일/태블릿용 반응형 브레이크 포인트 */
+        /* 모바일 반응형 브레이크 포인트 */
         @media (max-width: 768px) {
             header .container {
                 flex-direction: column;
@@ -416,6 +456,12 @@
 </head>
 <body>
 
+    <div class="ticker-wrapper">
+        <div class="ticker-text">
+            📢 [공지] 휴대폰성지 굳폰 당일 단독 추가 지원금 반영 완료! 방문 전 카카오톡 채널 예약 필수 🔔 대기 없는 빠른 상담을 위해 예약제를 실시하고 있습니다. 📱 3사 번이/기변 최고 조건 상시 업데이트 중! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+
     <header>
         <div class="container">
             <div class="logo">📱 휴대폰성지<span>굳폰</span></div>
@@ -446,7 +492,6 @@
                 <div class="update-badge">● LIVE 실시간 반영중</div>
             </div>
             
-            <!-- SKT 시세표 -->
             <div class="table-wrapper">
                 <div class="provider-header">
                     <div class="provider-title skt-title">SK Telecom</div>
@@ -475,7 +520,6 @@
                 </table>
             </div>
 
-            <!-- KT 시세표 -->
             <div class="table-wrapper">
                 <div class="provider-header">
                     <div class="provider-title kt-title">KT</div>
@@ -504,7 +548,6 @@
                 </table>
             </div>
 
-            <!-- LGU+ 시세표 -->
             <div class="table-wrapper">
                 <div class="provider-header">
                     <div class="provider-title lgu-title">LG U+</div>
