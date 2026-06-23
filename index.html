@@ -202,6 +202,7 @@
             border-radius: 16px;
             margin-bottom: 40px;
             border: 1px solid #E2E8F0;
+            overflow-x: auto; /* 모바일에서 가로 스크롤을 보장하여 레이아웃 깨짐 방지 */
         }
 
         .provider-header {
@@ -234,6 +235,7 @@
             border-radius: 20px;
             border: 1px solid #E2E8F0;
             font-weight: 500;
+            white-space: nowrap; /* 글자 줄바꿈 방지 */
         }
 
         table {
@@ -241,6 +243,7 @@
             border-collapse: separate;
             border-spacing: 0 8px;
             text-align: center;
+            min-width: 500px; /* 모바일에서 표가 심하게 찌그러지는 것 방지 */
         }
 
         th {
@@ -359,6 +362,56 @@
             font-size: 14px;
             border-top: 1px solid #1E293B;
         }
+
+        /* 📱 모바일/태블릿용 반응형 브레이크 포인트 */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                justify-content: center;
+                height: auto;
+                padding: 15px 0;
+                gap: 12px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            nav ul li a {
+                font-size: 14px;
+            }
+
+            .hero-content h2 {
+                font-size: 28px;
+            }
+
+            .hero-content p {
+                font-size: 15px;
+            }
+
+            .section-title h3 {
+                font-size: 22px;
+            }
+
+            .contact-card {
+                padding: 24px;
+            }
+
+            .info-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .info-label {
+                width: 100%;
+                font-size: 13px;
+            }
+
+            .info-value {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -393,6 +446,7 @@
                 <div class="update-badge">● LIVE 실시간 반영중</div>
             </div>
             
+            <!-- SKT 시세표 -->
             <div class="table-wrapper">
                 <div class="provider-header">
                     <div class="provider-title skt-title">SK Telecom</div>
@@ -421,6 +475,7 @@
                 </table>
             </div>
 
+            <!-- KT 시세표 -->
             <div class="table-wrapper">
                 <div class="provider-header">
                     <div class="provider-title kt-title">KT</div>
@@ -449,6 +504,7 @@
                 </table>
             </div>
 
+            <!-- LGU+ 시세표 -->
             <div class="table-wrapper">
                 <div class="provider-header">
                     <div class="provider-title lgu-title">LG U+</div>
