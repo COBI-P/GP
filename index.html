@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>휴대폰성지 굳폰 | 실시간 최저가 시세표</title>
+    
+    <style>
+        /* 기본 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Malgun Gothic', dotum, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* 헤더 스타일 (딥블루 배경) */
+        header {
+            background-color: #0b1e36;
+            color: #fff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid #ffd200;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: #ffd200;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        nav ul li a:hover {
+            color: #ffd200;
+        }
+
+        /* 메인 비주얼 영역 */
+        .hero-section {
+            background: linear-gradient(135deg, #0b1e36 0%, #1e3a63 100%);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-content h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .badge-yellow {
+            background-color: #ffd200;
+            color: #0b1e36;
+            padding: 2px 10px;
+            border-radius: 5px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #cbd5e1;
+        }
+
+        .btn-main {
+            display: inline-block;
+            background-color: #ffd200;
+            color: #0b1e36;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn-main:hover {
+            background-color: #e6bd00;
+        }
+
+        /* 섹션 공통 타이틀 */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h3 {
+            font-size: 26px;
+            color: #0b1e36;
+            margin-bottom: 10px;
+        }
+
+        /* 시세표 섹션 스타일 */
+        .price-section {
+            padding: 60px 0;
+        }
+
+        .table-wrapper {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* 통신사별 테두리 포인트 */
+        .skt-border { border-top: 4px solid #ff4b00; }
+        .kt-border { border-top: 4px solid #00b0b2; }
+        .lgu-border { border-top: 4px solid #e6007e; }
+
+        .skt-title { color: #ff4b00; margin-bottom: 15px; font-size: 18px; font-weight: bold;}
+        .kt-title { color: #00b0b2; margin-bottom: 15px; font-size: 18px; font-weight: bold;}
+        .lgu-title { color: #e6007e; margin-bottom: 15px; font-size: 18px; font-weight: bold;}
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: #0b1e36;
+            font-weight: bold;
+        }
+
+        .price-low {
+            color: #e11d48;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        /* 상담 및 위치 섹션 */
+        .contact-section {
+            background-color: #eaedf2;
+            padding: 60px 0;
+        }
+
+        .contact-info {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .btn-kakao {
+            display: block;
+            text-align: center;
+            background-color: #fee500;
+            color: #191919;
+            padding: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        /* 푸터 스타일 */
+        footer {
+            background-color: #0b1e36;
+            color: #748ba7;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">📱 휴대폰성지 <span class="highlight">굳폰</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">홈</a></li>
+                    <li><a href="#price-table">실시간 시세표</a></li>
+                    <li><a href="#contact">상담 및 오시는길</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="container hero-content">
+            <h2>거품 없는 진짜 가격!<br>휴대폰은 <span class="badge-yellow">굳폰</span>에서</h2>
+            <p>매일 업데이트되는 실시간 최저가 시세표를 확인하세요.</p>
+            <a href="#price-table" class="btn-main">오늘의 시세표 보기 ↓</a>
+        </div>
+    </section>
+
+    <section id="price-table" class="price-section">
+        <div class="container">
+            <div class="section-title">
+                <h3>📊 오늘의 실시간 시세표</h3>
+                <p>※ 시세는 정책에 따라 당일 변동될 수 있습니다. (단위: 만원)</p>
+            </div>
+            
+            <div class="table-wrapper skt-border">
+                <h4 class="skt-title">SK Telecom</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>모델명</th>
+                            <th>요금제</th>
+                            <th>번호이동 (이동)</th>
+                            <th>기기변경 (기변)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>갤럭시 S26</td>
+                            <td>컴포트 105</td>
+                            <td class="price-low">15</td>
+                            <td class="price-low">23</td>
+                        </tr>
+                        <tr>
+                            <td>아이폰 17</td>
+                            <td>컴포트 105</td>
+                            <td class="price-low">39</td>
+                            <td class="price-low">45</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-wrapper kt-border" style="margin-top: 30px;">
+                <h4 class="kt-title">KT</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>모델명</th>
+                            <th>요금제</th>
+                            <th>번호이동 (이동)</th>
+                            <th>기기변경 (기변)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>갤럭시 S26</td>
+                            <td>초이스 베이직 90</td>
+                            <td class="price-low">12</td>
+                            <td class="price-low">20</td>
+                        </tr>
+                        <tr>
+                            <td>아이폰 17</td>
+                            <td>초이스 베이직 90</td>
+                            <td class="price-low">35</td>
+                            <td class="price-low">41</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-wrapper lgu-border" style="margin-top: 30px;">
+                <h4 class="lgu-title">LG U+</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>모델명</th>
+                            <th>요금제</th>
+                            <th>번호이동 (이동)</th>
+                            <th>기기변경 (기변)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>갤럭시 S26</td>
+                            <td>레디 95</td>
+                            <td class="price-low">10</td>
+                            <td class="price-low">18</td>
+                        </tr>
+                        <tr>
+                            <td>아이폰 17</td>
+                            <td>레디 95</td>
+                            <td class="price-low">33</td>
+                            <td class="price-low">39</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h3>📞 굳폰 빠른 상담 & 위치</h3>
+                <p>방문 전 예약하시면 대기 없이 빠르게 상담받으실 수 있습니다.</p>
+            </div>
+            <div class="contact-info">
+                <p><strong>📍 주소:</strong> 서울시 굳구 굳동 123-4번지 1층 (주차 가능)</p>
+                <p><strong>⏰ 영업시간:</strong> 오전 11:00 ~ 오후 08:00 (일요일 휴무)</p>
+                <p><strong>💬 카카오톡 채널:</strong> @굳폰_성지</p>
+                <a href="#" class="btn-kakao">💬 카카오톡 문의하기</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 휴대폰성지 굳폰. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
