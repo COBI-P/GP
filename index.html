@@ -3,611 +3,439 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>휴대폰성지 굳폰 | 전국 최저가 성지</title>
+    <title>휴대폰성지 굳폰 | 갤럭시·아이폰 전국 최저가 매장</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #1E3A8A;       /* 신뢰감을 주는 딥블루 */
-            --primary-light: #3B82F6; /* 트렌디한 브라이트 블루 */
-            --accent: #FBBF24;        /* 세련된 골드 옐로우 */
-            --accent-hover: #F59E0B;
-            --bg-main: #F8FAFC;       /* 깔끔한 미색 배경 */
-            --text-dark: #0F172A;     /* 고급스러운 다크 그레이 */
-            --text-muted: #64748B;    /* 보조 텍스트 */
-            --card-bg: #FFFFFF;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans KR", sans-serif;
-            letter-spacing: -0.02em;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-main);
-            color: var(--text-dark);
-            line-height: 1.7;
-        }
-
-        .container {
-            width: 92%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* [추가] 최상단 흐르는 공지 배너 */
-        .ticker-wrapper {
-            background: linear-gradient(90deg, #0f172a 0%, #1e3a8a 100%);
-            color: #fff;
-            font-size: 13px;
-            font-weight: 600;
-            padding: 8px 0;
-            overflow: hidden;
-            position: relative;
-            white-space: nowrap;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .ticker-text {
-            display: inline-block;
-            padding-left: 100%;
-            animation: ticker 25s linear infinite;
-        }
-
-        @keyframes ticker {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-100%, 0, 0); }
-        }
-
-        /* 글로벌 네비게이션 바 */
-        header {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #E2E8F0;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .logo span {
-            color: var(--accent-hover);
-            background: linear-gradient(135deg, var(--accent-hover), #D97706);
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        body { font-family: 'Pretendard', sans-serif; background-color: #fcfcfc; color: #1f2937; scroll-behavior: smooth; }
+        .gradient-text {
+            background: linear-gradient(to right, #d97706, #b45309);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav ul li a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: color 0.2s ease;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary-light);
-        }
-
-        /* 히어로 섹션 */
-        .hero-section {
-            background: radial-gradient(circle at top right, #EFF6FF 0%, #FFFFFF 100%);
-            padding: 100px 0 80px 0;
-            text-align: center;
-            border-bottom: 1px solid #F1F5F9;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background-color: #DBEAFE;
-            color: var(--primary);
-            font-size: 13px;
-            font-weight: 700;
-            padding: 6px 16px;
-            border-radius: 30px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 4px rgba(59, 130, 246, 0.1);
-        }
-
-        .hero-content h2 {
-            font-size: 42px;
-            font-weight: 800;
-            line-height: 1.3;
-            color: var(--text-dark);
-            margin-bottom: 18px;
-        }
-
-        .hero-content h2 mark {
-            background: linear-gradient(to top, rgba(251, 191, 36, 0.4) 40%, transparent 40%);
-            color: inherit;
-        }
-
-        .hero-content p {
-            font-size: 18px;
-            color: var(--text-muted);
-            margin-bottom: 36px;
-            font-weight: 400;
-        }
-
-        .btn-main {
-            display: inline-flex;
-            align-items: center;
-            background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
-            color: #FFFFFF;
-            padding: 16px 36px;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 12px;
-            font-size: 16px;
-            box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.2);
-            transition: all 0.25s ease;
-        }
-
-        .btn-main:hover {
-            background: linear-gradient(135deg, var(--primary-light) 0%, #2563eb 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px -3px rgba(59, 130, 246, 0.3);
-        }
-
-        /* 섹션 공통 헤더 */
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h3 {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 12px;
-        }
-
-        .section-title p {
-            font-size: 15px;
-            color: var(--text-muted);
-        }
-
-        .update-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background-color: #EF4444;
-            color: white;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 5px 12px;
-            border-radius: 6px;
-            margin-top: 10px;
-            animation: pulse 2s infinite;
-            box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.6; }
-            100% { opacity: 1; }
-        }
-
-        /* 시세표 섹션 */
-        .price-section {
-            padding: 90px 0;
-            background-color: #FFFFFF;
-        }
-
-        /* [수정] 카드 컴포넌트에 부드러운 호버 모션 가미 */
-        .table-wrapper {
-            background: var(--bg-main);
-            padding: 24px;
-            border-radius: 16px;
-            margin-bottom: 40px;
-            border: 1px solid #E2E8F0;
-            overflow-x: auto;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .table-wrapper:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.05);
-        }
-
-        .provider-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 18px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #E2E8F0;
-        }
-
-        .provider-title {
-            font-size: 20px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .skt-title { color: #E50015; }
-        .kt-title { color: #00B0B2; }
-        .lgu-title { color: #E6007E; }
-
-        .plan-info {
-            font-size: 13px;
-            color: var(--text-muted);
-            background-color: #FFFFFF;
-            padding: 4px 12px;
-            border-radius: 20px;
-            border: 1px solid #E2E8F0;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0 8px;
-            text-align: center;
-            min-width: 500px;
-        }
-
-        th {
-            padding: 12px;
-            color: var(--text-muted);
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        td {
-            padding: 16px 12px;
-            background-color: #FFFFFF;
-            font-size: 15px;
-            font-weight: 500;
-            transition: background-color 0.2s ease;
-        }
-
-        tr:hover td {
-            background-color: #F8FAFC;
-        }
-
-        td:first-child {
-            border-radius: 10px 0 0 10px;
-            font-weight: 700;
-            text-align: left;
-            padding-left: 20px;
-            color: #1e293b; /* 가독성 좋은 다크 톤 */
-        }
-
-        td:last-child {
-            border-radius: 0 10px 10px 0;
-        }
-
-        .price-low {
-            color: #EF4444;
-            font-weight: 800;
-            font-size: 18px;
-        }
-
-        .price-low::after {
-            content: ' 만원';
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-
-        /* 상담 및 안내 섹션 */
-        .contact-section {
-            padding: 90px 0;
-            background-color: var(--bg-main);
-        }
-
-        /* [수정] 안내 카드 컴포넌트 호버 스타일 강화 */
-        .contact-card {
-            background: #FFFFFF;
-            padding: 40px;
-            border-radius: 24px;
-            max-width: 680px;
-            margin: 0 auto;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.03), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
-            border: 1px solid #E2E8F0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.06);
-        }
-
-        .info-row {
-            display: flex;
-            padding: 16px 0;
-            border-bottom: 1px solid #F1F5F9;
-            align-items: center;
-        }
-
-        .info-row:last-of-type {
-            border-bottom: none;
-        }
-
-        .info-label {
-            width: 100px;
-            font-weight: 700;
-            color: var(--text-muted);
-            font-size: 15px;
-        }
-
-        .info-value {
-            flex: 1;
-            font-weight: 600;
-            color: var(--text-dark);
-            font-size: 16px;
-        }
-
-        /* 카카오톡 상담 버튼 입체감 강화 */
-        .btn-kakao {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: linear-gradient(135deg, #FEE500 0%, #fada0a 100%);
-            color: #191919;
-            padding: 16px;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 12px;
-            margin-top: 30px;
-            font-size: 16px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 14px rgba(254, 229, 0, 0.4);
-        }
-
-        .btn-kakao:hover {
-            background: linear-gradient(135deg, #FADA0A 0%, #e6cc00 100%);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 18px rgba(254, 229, 0, 0.5);
-        }
-
-        /* 푸터 */
-        footer {
-            background-color: #0F172A;
-            color: #94A3B8;
-            text-align: center;
-            padding: 30px 0;
-            font-size: 14px;
-            border-top: 1px solid #1E293B;
-        }
-
-        /* 모바일 반응형 브레이크 포인트 */
-        @media (max-width: 768px) {
-            header .container {
-                flex-direction: column;
-                justify-content: center;
-                height: auto;
-                padding: 15px 0;
-                gap: 12px;
-            }
-
-            nav ul {
-                gap: 20px;
-            }
-
-            nav ul li a {
-                font-size: 14px;
-            }
-
-            .hero-content h2 {
-                font-size: 28px;
-            }
-
-            .hero-content p {
-                font-size: 15px;
-            }
-
-            .section-title h3 {
-                font-size: 22px;
-            }
-
-            .contact-card {
-                padding: 24px;
-            }
-
-            .info-row {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
-            }
-
-            .info-label {
-                width: 100%;
-                font-size: 13px;
-            }
-
-            .info-value {
-                font-size: 14px;
-            }
-        }
+        .modal-overlay { transition: opacity 0.25s ease; }
+        body.modal-open { overflow: hidden; }
     </style>
 </head>
-<body>
+<body class="overflow-x-hidden">
 
-    <div class="ticker-wrapper">
-        <div class="ticker-text">
-            📢 [공지] 휴대폰성지 굳폰 당일 단독 추가 지원금 반영 완료! 방문 전 카카오톡 채널 예약 필수 🔔 대기 없는 빠른 상담을 위해 예약제를 실시하고 있습니다. 📱 3사 번이/기변 최고 조건 상시 업데이트 중! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </div>
-    </div>
-
-    <header>
-        <div class="container">
-            <div class="logo">📱 휴대폰성지<span>굳폰</span></div>
-            <nav>
-                <ul>
-                    <li><a href="#home">홈</a></li>
-                    <li><a href="#price-table">실시간 시세표</a></li>
-                    <li><a href="#contact">고객센터 / 위치</a></li>
-                </ul>
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="text-2xl font-black tracking-wider text-amber-500">휴대폰성지 굳폰</div>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+                <a href="#about" class="hover:text-amber-500 transition">About Us</a>
+                <a href="#reviews" class="hover:text-amber-500 transition">Review</a>
+                <a href="#who-we-are" class="hover:text-amber-500 transition">Who we are</a>
+                <a href="#stores" class="hover:text-amber-500 transition">Store (9개 지점)</a>
+                <a href="#process" class="hover:text-amber-500 transition">Process</a>
             </nav>
+            <a href="http://pf.kakao.com/_QxeLdn" target="_blank" class="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full text-xs font-bold hover:bg-yellow-300 transition shadow-md shadow-yellow-400/10">
+                <i class="fa-solid fa-comment mr-1"></i> 공식 채널
+            </a>
         </div>
     </header>
 
-    <section id="home" class="hero-section">
-        <div class="container hero-content">
-            <div class="hero-badge">정직한 가격, 투명한 공시</div>
-            <h2>가장 합리적인 선택<br>휴대폰 성지 <mark>굳폰</mark>에서</h2>
-            <p>불필요한 말장난 없이 당일 최저가 시세표 그대로 개통해 드립니다.</p>
-            <a href="#price-table" class="btn-main">오늘의 최저가 확인하기</a>
-        </div>
+    <section class="relative flex flex-col items-center justify-center text-center pt-28 pb-20 px-4 bg-gradient-to-b from-amber-50/40 to-white">
+        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <span class="bg-amber-100 text-amber-700 text-xs font-bold px-3 py-1 rounded-full mb-5 border border-amber-200 shadow-sm">대한민국 대표 휴대폰 성지</span>
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight text-gray-900">
+            진짜의 기준, 스마트폰<br>아직도 <span class="gradient-text">아무데서나</span> 구매하세요?
+        </h1>
+        <p class="text-gray-500 max-w-2xl text-base sm:text-lg leading-relaxed">
+            신뢰할 수 있는 성지 '굳폰'이 증명합니다. 최신 갤럭시 시리즈, 아이폰 전 모델 실시간 전국 최저가 시세표를 투명하게 공개합니다.
+        </p>
     </section>
 
-    <section id="price-table" class="price-section">
-        <div class="container">
-            <div class="section-title">
-                <h3>📊 실시간 최저가 시세표</h3>
-                <p>매일 오전 정책 반영을 통해 정직한 금액만 표기합니다.</p>
-                <div class="update-badge">● LIVE 실시간 반영중</div>
-            </div>
-            
-            <div class="table-wrapper">
-                <div class="provider-header">
-                    <div class="provider-title skt-title">SK Telecom</div>
-                    <div class="plan-info">💡 컴포트 105 요금제 기준</div>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="text-align: left; padding-left: 20px;">모델명</th>
-                            <th>번호이동</th>
-                            <th>기기변경</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>갤럭시 S26</td>
-                            <td class="price-low">15</td>
-                            <td class="price-low">23</td>
-                        </tr>
-                        <tr>
-                            <td>아이폰 17</td>
-                            <td class="price-low">39</td>
-                            <td class="price-low">45</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="table-wrapper">
-                <div class="provider-header">
-                    <div class="provider-title kt-title">KT</div>
-                    <div class="plan-info">💡 초이스 베이직 90 기준</div>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="text-align: left; padding-left: 20px;">모델명</th>
-                            <th>번호이동</th>
-                            <th>기기변경</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>갤럭시 S26</td>
-                            <td class="price-low">12</td>
-                            <td class="price-low">20</td>
-                        </tr>
-                        <tr>
-                            <td>아이폰 17</td>
-                            <td class="price-low">35</td>
-                            <td class="price-low">41</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="table-wrapper">
-                <div class="provider-header">
-                    <div class="provider-title lgu-title">LG U+</div>
-                    <div class="plan-info">💡 레디 95 기준</div>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="text-align: left; padding-left: 20px;">모델명</th>
-                            <th>번호이동</th>
-                            <th>기기변경</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>갤럭시 S26</td>
-                            <td class="price-low">10</td>
-                            <td class="price-low">18</td>
-                        </tr>
-                        <tr>
-                            <td>아이폰 17</td>
-                            <td class="price-low">33</td>
-                            <td class="price-low">39</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
+    <section id="reviews" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-gray-50">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl font-bold text-gray-900 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-star text-yellow-400 animate-pulse"></i> 고객들의 생생한 굳폰 개통 후기
+            </h2>
+            <p class="text-gray-400 text-xs mt-1.5">실제 고객님들이 남겨주신 정직한 포토리뷰입니다.</p>
         </div>
-    </section>
 
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="section-title">
-                <h3>📌 매장 안내 및 빠른 상담</h3>
-                <p>신속하고 정확한 상담을 위해 카카오톡 채널을 상시 운영하고 있습니다.</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            <div class="bg-gray-100 rounded-2xl overflow-hidden aspect-square border border-gray-200/80 relative group shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                <img src="https://via.placeholder.com/400?text=Review+Image+1" alt="굳폰 후기 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 flex flex-col justify-end text-white">
+                    <p class="font-bold text-sm">창동점 구매고객</p>
+                    <div class="text-yellow-400 text-xs mt-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                </div>
             </div>
-            <div class="contact-card">
-                <div class="info-row">
-                    <div class="info-label">직영점</div>
-                    <div class="info-value">도봉구·성동구·은평구·금천구·남양주·인천서구·세종·청주·아산</div>
+            <div class="bg-gray-100 rounded-2xl overflow-hidden aspect-square border border-gray-200/80 relative group shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                <img src="https://via.placeholder.com/400?text=Review+Image+2" alt="굳폰 후기 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 flex flex-col justify-end text-white">
+                    <p class="font-bold text-sm">왕십리점 구매고객</p>
+                    <div class="text-yellow-400 text-xs mt-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                 </div>
-                <div class="info-row">
-                    <div class="info-label">영업 시간</div>
-                    <div class="info-value">AM 11:00 ~ PM 20:00 (연중무휴)</div>
+            </div>
+            <div class="bg-gray-100 rounded-2xl overflow-hidden aspect-square border border-gray-200/80 relative group shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                <img src="https://via.placeholder.com/400?text=Review+Image+3" alt="굳폰 후기 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 flex flex-col justify-end text-white">
+                    <p class="font-bold text-sm">DMC점 구매고객</p>
+                    <div class="text-yellow-400 text-xs mt-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                 </div>
-                <div class="info-row">
-                    <div class="info-label">카카오톡</div>
-                    <div class="info-value">@굳폰</div>
+            </div>
+            <div class="bg-gray-100 rounded-2xl overflow-hidden aspect-square border border-gray-200/80 relative group shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                <img src="https://via.placeholder.com/400?text=Review+Image+4" alt="굳폰 후기 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 flex flex-col justify-end text-white">
+                    <p class="font-bold text-sm">가산점 구매고객</p>
+                    <div class="text-yellow-400 text-xs mt-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                 </div>
-                <a href="http://pf.kakao.com/_QxeLdn" target="_blank" class="btn-kakao">💬 카카오톡 실시간 상담 예약하기</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 휴대폰성지 굳폰. All Rights Reserved.</p>
+    <section id="about" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-gray-100">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-center">
+            <div class="bg-white p-8 rounded-2xl border border-gray-200/70 shadow-sm">
+                <div class="text-3xl font-extrabold text-amber-500 mb-2">정직함</div>
+                <div class="text-gray-500 text-sm">속임수 없는 투명한 단말기 대금 안내</div>
+            </div>
+            <div class="bg-white p-8 rounded-2xl border border-gray-200/70 shadow-sm">
+                <div class="text-3xl font-extrabold text-amber-600 mb-2">최저가 보장</div>
+                <div class="text-gray-500 text-sm">불필요한 제휴카드 조건 배제</div>
+            </div>
+            <div class="bg-white p-8 rounded-2xl border border-gray-200/70 shadow-sm">
+                <div class="text-3xl font-extrabold text-amber-500 mb-2">9개 직영 매장</div>
+                <div class="text-gray-500 text-sm">전 지점 동일한 가격과 친절한 서비스</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="who-we-are" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto text-center px-6">
+            <h2 class="text-3xl font-bold mb-6 text-gray-900">판매 조건이 정말 동일한지 꼭 확인하세요!</h2>
+            <p class="text-gray-600 leading-relaxed mb-8 text-base">
+                <strong class="text-amber-600">휴대폰성지 굳폰</strong> 전국 9개 직영매장에서는 요금제, 부가서비스 외에 기존폰 반납 조건, 의무 결합 할인 등의 추가 옵션이 없는 실구매 최종 판매가를 안내합니다. 공식 대리점이나 일반 동네 매장보다 확실한 자체 지원금을 약속드립니다.
+            </p>
+        </div>
+    </section>
+
+    <section id="stores" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4 text-gray-900">굳폰 전국 직영 매장 안내</h2>
+            <p class="text-gray-500 text-sm sm:text-base">전국 9개 매장이 모두 동일한 시세표와 최저가 혜택으로 운영됩니다. 가까운 매장으로 문의해 주세요.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-stretch">
+            <div class="bg-white rounded-2xl p-6 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition duration-300 shadow-sm h-full">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">서울</span>
+                        <a href="tel:010-6469-1555" class="text-xs text-gray-400 hover:text-gray-900 transition"><i class="fa-solid fa-phone mr-1"></i>010-6469-1555</a>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">굳폰 창동점</h3>
+                    <div class="mb-3 text-amber-700 bg-amber-50 border border-amber-200 py-1 px-2.5 rounded-lg text-[11px] inline-flex items-center gap-1.5 font-semibold">
+                        <i class="fa-solid fa-walking"></i> 창동역 2번 출구 3분거리
+                    </div>
+                    <p class="text-gray-600 text-xs leading-relaxed mb-4 bg-gray-50 p-3 rounded-xl border border-gray-100 min-h-[48px] flex items-center">
+                        <span><i class="fa-solid fa-location-dot mr-1 text-amber-500"></i> 서울 도봉구 노해로 341 3층 301호</span>
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 pt-2 border-t border-gray-50">
+                    <a href="https://naver.me/5lfs7fxP" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-center py-2.5 rounded-xl font-medium text-xs text-gray-700 transition flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-map-location-dot text-emerald-500"></i> 지도 보기
+                    </a>
+                    <a href="tel:010-6469-1555" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 text-center py-2.5 rounded-xl font-semibold text-xs transition flex items-center justify-center gap-1">전화 문의</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition duration-300 shadow-sm h-full">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">서울</span>
+                        <a href="tel:010-9361-6766" class="text-xs text-gray-400 hover:text-gray-900 transition"><i class="fa-solid fa-phone mr-1"></i>010-9361-6766</a>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">굳폰 DMC점</h3>
+                    <div class="mb-3 text-amber-700 bg-amber-50 border border-amber-200 py-1 px-2.5 rounded-lg text-[11px] inline-flex items-center gap-1.5 font-semibold">
+                        <i class="fa-solid fa-walking"></i> 디지털미디어시티역 5번 출구 1분거리
+                    </div>
+                    <p class="text-gray-600 text-xs leading-relaxed mb-4 bg-gray-50 p-3 rounded-xl border border-gray-100 min-h-[48px] flex items-center">
+                        <span><i class="fa-solid fa-location-dot mr-1 text-amber-500"></i> 서울 은평구 증산동 261</span>
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 pt-2 border-t border-gray-50">
+                    <a href="https://naver.me/GgWkxwVV" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-center py-2.5 rounded-xl font-medium text-xs text-gray-700 transition flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-map-location-dot text-emerald-500"></i> 지도 보기
+                    </a>
+                    <a href="tel:010-9361-6766" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 text-center py-2.5 rounded-xl font-semibold text-xs transition flex items-center justify-center gap-1">전화 문의</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition duration-300 shadow-sm h-full">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">서울</span>
+                        <a href="tel:010-5554-5951" class="text-xs text-gray-400 hover:text-gray-900 transition"><i class="fa-solid fa-phone mr-1"></i>010-5554-5951</a>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">굳폰 왕십리점</h3>
+                    <div class="mb-3 text-amber-700 bg-amber-50 border border-amber-200 py-1 px-2.5 rounded-lg text-[11px] inline-flex items-center gap-1.5 font-semibold">
+                        <i class="fa-solid fa-walking"></i> 왕십리역 12번 출구 1분거리
+                    </div>
+                    <p class="text-gray-600 text-xs leading-relaxed mb-4 bg-gray-50 p-3 rounded-xl border border-gray-100 min-h-[48px] flex items-center">
+                        <span><i class="fa-solid fa-location-dot mr-1 text-amber-500"></i> 서울 성동구 왕십리광장로 17 왕십리 비트플렉스몰 3층 B-89호</span>
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 pt-2 border-t border-gray-50">
+                    <a href="https://naver.me/GSc3pQaB" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-center py-2.5 rounded-xl font-medium text-xs text-gray-700 transition flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-map-location-dot text-emerald-500"></i> 지도 보기
+                    </a>
+                    <a href="tel:010-5554-5951" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 text-center py-2.5 rounded-xl font-semibold text-xs transition flex items-center justify-center gap-1">전화 문의</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition duration-300 shadow-sm h-full">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">서울</span>
+                        <a href="tel:010-6346-6836" class="text-xs text-gray-400 hover:text-gray-900 transition"><i class="fa-solid fa-phone mr-1"></i>010-6346-6836</a>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">굳폰 가산점</h3>
+                    <div class="mb-3 text-amber-700 bg-amber-50 border border-amber-200 py-1 px-2.5 rounded-lg text-[11px] inline-flex items-center gap-1.5 font-semibold">
+                        <i class="fa-solid fa-walking"></i> 가산디지털역 10번 출구 1분거리
+                    </div>
+                    <p class="text-gray-600 text-xs leading-relaxed mb-4 bg-gray-50 p-3 rounded-xl border border-gray-100 min-h-[48px] flex items-center">
+                        <span><i class="fa-solid fa-location-dot mr-1 text-amber-500"></i> 서울 금천구 가산디지털1로 168 A동 1층 123-1호</span>
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 pt-2 border-t border-gray-50">
+                    <a href="https://naver.me/Gwpl2jBt" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-center py-2.5 rounded-xl font-medium text-xs text-gray-700 transition flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-map-location-dot text-emerald-500"></i> 지도 보기
+                    </a>
+                    <a href="tel:010-6346-6836" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 text-center py-2.5 rounded-xl font-semibold text-xs transition flex items-center justify-center gap-1">전화 문의</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition duration-300 shadow-sm h-full">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">경기</span>
+                        <a href="tel:010-8249-3621" class="text-xs text-gray-400 hover:text-gray-900 transition"><i class="fa-solid fa-phone mr-1"></i>010-8249-3621</a>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">굳폰 다산점</h3>
+                    <div class="mb-3 text-amber-700 bg-amber-50 border border-amber-200 py-1 px-2.5 rounded-lg text-[11px] inline-flex items-center gap-1.5 font-semibold">
+                        <i class="fa-solid fa-walking"></i> 다산역 1번 출구 1분거리
+                    </div>
+                    <p class="text-gray-600 text-xs leading-relaxed mb-4 bg-gray-50 p-3 rounded-xl border border-gray-100 min-h-[48px] flex items-center">
+                        <span><i class="fa-solid fa-location-dot mr-1 text-amber-500"></i> 경기 남양주시 다산중앙로123번길 22-8 1층 110호</span>
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 pt-2 border-t border-gray-50">
+                    <a href="https://naver.me/5jJye4dW" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-center py-2.5 rounded-xl font-medium text-xs text-gray-700 transition flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-map-location-dot text-emerald-500"></i> 지도 보기
+                    </a>
+                    <a href="tel:010-8249-3621" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 text-center py-2.5 rounded-xl font-semibold text-xs transition flex items-center justify-center gap-1">전화 문의</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition duration-300 shadow-sm h-full">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">인천</span>
+                        <a href="tel:010-8551-4851" class="text-xs text-gray-400 hover:text-gray-900 transition"><i class="fa-solid fa-phone mr-1"></i>010-8551-4851</a>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">굳폰 검단점</h3>
+                    <div class="mb-3 text-amber-700 bg-amber-50 border border-amber-200 py-1 px-2.5 rounded-lg text-[11px] inline-flex items-center gap-1.5 font-semibold">
+                        <i class="fa-solid fa-walking"></i> 아라역 7번 출구 바로 앞
+                    </div>
+                    <p class="text-gray-600 text-xs leading-relaxed mb-4 bg-gray-50 p-3 rounded-xl border border-gray-100 min-h-[48px] flex items-center">
+                        <span><i class="fa-solid fa-location-dot mr-1 text-amber-500"></i> 인천 서구 이음대로 392 메트로시티 1층 105호</span>
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 pt-2 border-t border-gray-50">
+                    <a href="https://naver.me/FJOn6rc3" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-center py-2.5 rounded-xl font-medium text-xs text-gray-700 transition flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-map-location-dot text-emerald-500"></i> 지도 보기
+                    </a>
+                    <a href="tel:010-8551-4851" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 text-center py-2.5 rounded-xl font-semibold text-xs transition flex items-center justify-center gap-1">전화 문의</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition duration-300 shadow-sm h-full">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">세종</span>
+                        <a href="tel:010-2441-1665" class="text-xs text-gray-400 hover:text-gray-900 transition"><i class="fa-solid fa-phone mr-1"></i>010-2441-1665</a>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">굳폰 세종점</h3>
+                    <div class="mb-3 text-amber-700 bg-amber-50 border border-amber-200 py-1 px-2.5 rounded-lg text-[11px] inline-flex items-center gap-1.5 font-semibold">
+                        <i class="fa-solid fa-building"></i> 다정동 가온마을 다정센타프라자 1층
+                    </div>
+                    <p class="text-gray-600 text-xs leading-relaxed mb-4 bg-gray-50 p-3 rounded-xl border border-gray-100 min-h-[48px] flex items-center">
+                        <span><i class="fa-solid fa-location-dot mr-1 text-amber-500"></i> 세종 다정중앙로 57 1동 1층 109호</span>
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 pt-2 border-t border-gray-50">
+                    <a href="https://naver.me/GYCbj0DM" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-center py-2.5 rounded-xl font-medium text-xs text-gray-700 transition flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-map-location-dot text-emerald-500"></i> 지도 보기
+                    </a>
+                    <a href="tel:010-2441-1665" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 text-center py-2.5 rounded-xl font-semibold text-xs transition flex items-center justify-center gap-1">전화 문의</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition duration-300 shadow-sm h-full">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">충북</span>
+                        <a href="tel:010-2684-0294" class="text-xs text-gray-400 hover:text-gray-900 transition"><i class="fa-solid fa-phone mr-1"></i>010-2684-0294</a>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">굳폰 청주점</h3>
+                    <div class="mb-3 text-amber-700 bg-amber-50 border border-amber-200 py-1 px-2.5 rounded-lg text-[11px] inline-flex items-center gap-1.5 font-semibold">
+                        <i class="fa-solid fa-road"></i> 흥덕구 복대동 솔밭초교사거리 앞
+                    </div>
+                    <p class="text-gray-600 text-xs leading-relaxed mb-4 bg-gray-50 p-3 rounded-xl border border-gray-100 min-h-[48px] flex items-center">
+                        <span><i class="fa-solid fa-location-dot mr-1 text-amber-500"></i> 충북 청주시 흥덕구 대농로 47 1동 1층 104호</span>
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 pt-2 border-t border-gray-50">
+                    <a href="https://naver.me/xOdI70aM" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-center py-2.5 rounded-xl font-medium text-xs text-gray-700 transition flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-map-location-dot text-emerald-500"></i> 지도 보기
+                    </a>
+                    <a href="tel:010-2684-0294" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 text-center py-2.5 rounded-xl font-semibold text-xs transition flex items-center justify-center gap-1">전화 문의</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition duration-300 shadow-sm h-full">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">충남</span>
+                        <a href="tel:010-9662-9512" class="text-xs text-gray-400 hover:text-gray-900 transition"><i class="fa-solid fa-phone mr-1"></i>010-9662-9512</a>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">굳폰 아산점</h3>
+                    <div class="mb-3 text-amber-700 bg-amber-50 border border-amber-200 py-1 px-2.5 rounded-lg text-[11px] inline-flex items-center gap-1.5 font-semibold">
+                        <i class="fa-solid fa-walking"></i> 탕정역 1번 출구 5분거리
+                    </div>
+                    <p class="text-gray-600 text-xs leading-relaxed mb-4 bg-gray-50 p-3 rounded-xl border border-gray-100 min-h-[48px] flex items-center">
+                        <span><i class="fa-solid fa-location-dot mr-1 text-amber-500"></i> 충남 아산시 탕정면 한들물빛5로 5 1층</span>
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 pt-2 border-t border-gray-50">
+                    <a href="https://naver.me/FZ2PZrUt" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-center py-2.5 rounded-xl font-medium text-xs text-gray-700 transition flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-map-location-dot text-emerald-500"></i> 지도 보기
+                    </a>
+                    <a href="tel:010-9662-9512" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 text-center py-2.5 rounded-xl font-semibold text-xs transition flex items-center justify-center gap-1">전화 문의</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">쉽고 간편한 굳폰 이용 안내</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-12 h-12 rounded-full bg-yellow-400 text-gray-950 flex items-center justify-center text-xl font-bold mx-auto mb-4">01</div>
+                    <h4 class="text-lg font-bold mb-2 text-gray-900">당일 시세 확인</h4>
+                    <p class="text-gray-500 text-sm">전 지점 동일하게 적용되는 오늘의 시세를 카톡 및 전화로 간편하게 확인해 보세요!</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 rounded-full bg-yellow-400 text-gray-950 flex items-center justify-center text-xl font-bold mx-auto mb-4">02</div>
+                    <h4 class="text-lg font-bold mb-2 text-gray-900">가까운 매장 확인</h4>
+                    <p class="text-gray-500 text-sm">안내받으신 굳폰 직영 매장 중 고객님이 방문하기 가장 편한 위치를 확인합니다.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 rounded-full bg-yellow-400 text-gray-950 flex items-center justify-center text-xl font-bold mx-auto mb-4">03</div>
+                    <h4 class="text-lg font-bold mb-2 text-gray-900">방문 상담 후 개통</h4>
+                    <p class="text-gray-500 text-sm">구매 조건과 최종 실구매가를 매장에서 꼼꼼히 한 번 더 확인하고 기기를 수령합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-100 border-t border-gray-200 text-gray-500 text-xs py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
+            <div class="flex flex-wrap gap-4 text-gray-700 font-semibold mb-2">
+                <button onclick="openPrivacyModal()" class="hover:underline hover:text-amber-600 transition">개인정보처리방침</button>
+            </div>
+            <p class="leading-relaxed">
+                상호명 | 주식회사 피엔지컴퍼니 &nbsp;|&nbsp; 대표자 | 박시훈 &nbsp;|&nbsp; 사업자등록번호 | 854-88-02005 &nbsp;|&nbsp; 법인등록번호 | 110111-7965655
+            </p>
+            <p class="leading-relaxed">
+                주소 | 서울특별시 영등포구 선유로 114 &nbsp;|&nbsp; 통신판매업신고 | 2021-서울성동-01990 &nbsp;|&nbsp; 이메일 | planner_92@naver.com
+            </p>
+            <p class="leading-relaxed pt-2 text-gray-400 border-t border-gray-200">
+                굳폰은 통신판매중개자이며 통신판매의 당사자가 아닙니다. 상품, 상품정보, 거래에 관한 의무와 책임은 거래당사자에게 있습니다. 단말기 가격과 통신요금은 별도입니다. 개통 시 통신사 지정 요금제 및 부가서비스 가입 조건이 적용될 수 있습니다.
+            </p>
+            <p class="pt-2 text-center text-gray-400">© goodphone & 주식회사 피엔지컴퍼니. All Rights Reserved 2026.</p>
         </div>
     </footer>
 
+    <div class="fixed top-1/2 -translate-y-1/2 right-3 sm:right-5 z-50 flex flex-col gap-3">
+        <a href="https://www.instagram.com/goodphone_sungji/" target="_blank" class="flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white rounded-full shadow-xl hover:scale-110 transition duration-300">
+            <i class="fa-brands fa-instagram text-lg sm:text-2xl"></i>
+        </a>
+        <a href="http://pf.kakao.com/_QxeLdn" target="_blank" class="flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 bg-yellow-400 text-gray-950 rounded-full shadow-xl hover:scale-110 transition duration-300">
+            <i class="fa-solid fa-comment text-lg sm:text-2xl"></i>
+        </a>
+    </div>
+
+    <div id="privacyModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm hidden modal-overlay opacity-0">
+        <div class="bg-white w-full max-w-2xl rounded-2xl border border-gray-200 p-6 flex flex-col max-h-[80vh] shadow-xl">
+            <div class="flex items-center justify-between pb-4 border-b border-gray-200 mb-4">
+                <h3 class="text-lg font-bold text-amber-600">개인정보처리방침</h3>
+                <button onclick="closePrivacyModal()" class="text-gray-400 hover:text-gray-900 transition text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="overflow-y-auto text-gray-600 text-xs space-y-4 pr-2 leading-relaxed">
+                <p><strong>주식회사 피엔지컴퍼니(이하 '회사')</strong>는 고객님의 개인정보를 소중하게 생각하며, "개인정보 보호법" 등 관련 법령을 준수하고 있습니다. 회사는 본 개인정보처리방침을 통하여 고객님께서 제공하시는 개인정보가 어떠한 용도와 방식으로 이용되고 있으며, 개인정보보호를 위해 어떠한 조치가 취해지고 있는지 알려드립니다.</p>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-1">1. 수집하는 개인정보의 항목 및 수집방법</h4>
+                    <p>회사는 전화 상담, 카카오톡 상담 및 서비스 제공을 위해 아래와 같은 최소한의 개인정보를 수집할 수 있습니다.</p>
+                    <ul class="list-disc pl-4 mt-1 space-y-0.5">
+                        <li>수집항목: 이름, 연락처(휴대폰 번호), 상담 희망 지점, 희망 기종 및 통신사 조건</li>
+                        <li>수집방법: 고객의 유선 전화 문의, 카카오톡 채널 상담 접수</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-1">2. 개인정보의 수집 및 이용목적</h4>
+                    <p>회사는 수집한 개인정보를 다음의 목적을 위해 활용합니다.</p>
+                    <ul class="list-disc pl-4 mt-1 space-y-0.5">
+                        <li>스마트폰 구매 조건 상담, 당일 시세표 안내 및 방문 매장 예약 확인</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-1">3. 개인정보의 보유 및 이용기간</h4>
+                    <p>회사는 원칙적으로 보존할 필요가 있는 경우를 제외하고는 이용 목적이 달성된 후 지체 없이 파기합니다.</p>
+                    <ul class="list-disc pl-4 mt-1 space-y-0.5">
+                        <li>보유 기간: 상담 완료 후 3개월 이내 파기 (고객 요청 시 즉시 파기)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-1">6. 개인정보 보호책임자 및 상담 신고</h4>
+                    <p>고객의 개인정보를 보호하고 관련 불만을 처리하기 위하여 아래와 같이 책임자를 지정하고 있습니다.</p>
+                    <ul class="list-disc pl-4 mt-1 space-y-0.5">
+                        <li>개인정보 보호책임자: 박시훈 대표이사</li>
+                        <li>문의처: planner_92@naver.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200 flex justify-end">
+                <button onclick="closePrivacyModal()" class="bg-yellow-400 hover:bg-yellow-300 text-gray-950 font-bold px-5 py-2 rounded-xl text-xs transition">
+                    확인 및 닫기
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openPrivacyModal() {
+            const modal = document.getElementById('privacyModal');
+            document.body.classList.add('modal-open');
+            modal.classList.remove('hidden');
+            setTimeout(() => { modal.classList.add('opacity-100'); }, 10);
+        }
+        function closePrivacyModal() {
+            const modal = document.getElementById('privacyModal');
+            modal.classList.remove('opacity-100');
+            document.body.classList.remove('modal-open');
+            setTimeout(() => { modal.classList.add('hidden'); }, 250);
+        }
+        window.onclick = function(event) {
+            const modal = document.getElementById('privacyModal');
+            if (event.target == modal) { closePrivacyModal(); }
+        }
+    </script>
 </body>
 </html>
