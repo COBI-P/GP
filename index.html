@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>휴대폰성지 굳폰 | 갤럭시·아이폰 전국 최저가 매장</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome 아이콘 CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
@@ -57,7 +55,6 @@
 </head>
 <body class="w-full">
 
-    <!-- 1. 헤더 (고정 네비게이션) -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
             <div class="text-xl sm:text-2xl font-black tracking-wider text-amber-500">휴대폰성지 굳폰</div>
@@ -74,7 +71,6 @@
         </div>
     </header>
 
-    <!-- 2. 히어로 섹션 -->
     <section class="relative flex flex-col items-center justify-center text-center pt-16 pb-12 sm:pt-24 sm:pb-16 px-4 bg-gradient-to-b from-amber-50/40 to-white">
         <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
         <span class="bg-amber-100 text-amber-700 text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full mb-4 border border-amber-200 shadow-sm">대한민국 대표 휴대폰 성지</span>
@@ -86,7 +82,6 @@
         </p>
     </section>
 
-    <!-- 📊 3. 실시간 상담 대시보드 섹션 -->
     <section id="status-section" class="py-6 sm:py-10 bg-amber-50/50 border-t border-b border-amber-100/60">
         <div class="max-w-xl mx-auto px-4">
             <div class="bg-white p-6 sm:p-8 rounded-2xl border border-amber-200/60 shadow-md text-center">
@@ -108,7 +103,6 @@
         </div>
     </section>
 
-    <!-- 4. 포토리뷰 섹션 (9개 지점 전체 노출 및 롤링 최적화) -->
     <section id="reviews" class="py-12 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 text-center mb-6">
             <h2 class="text-xl sm:text-2xl font-bold text-gray-900 flex items-center justify-center gap-1.5">
@@ -119,63 +113,60 @@
 
         <div class="slider-container relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-12 sm:before:w-20 before:bg-gradient-to-r before:from-white before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-12 sm:after:w-20 after:bg-gradient-to-l after:from-white after:to-transparent">
             <div class="animate-marquee gap-3 sm:gap-6 px-2">
-                <!-- 9개 지점 원본 리스트 세트 -->
                 <div class="flex gap-3 sm:gap-6">
                     <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 relative group shadow-sm flex-shrink-0">
-                        <img src="https://COBI-P.github.io/GP/images/CD.JPG" alt="창동점 후기" class="w-full h-full object-cover">
+                        <img src="https://COBI-P.github.io/GP/images/CD.jpg" alt="창동점 후기" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-2.5 sm:p-4 flex flex-col justify-end text-white"><p class="font-bold text-[10px] sm:text-sm">창동점 구매고객</p></div>
                     </div>
                     <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 relative group shadow-sm flex-shrink-0">
-                        <img src="https://COBI-P.github.io/GP/images/WS.JPG" alt="왕십리점 후기" class="w-full h-full object-cover">
+                        <img src="https://COBI-P.github.io/GP/images/WS.jpg" alt="왕십리점 후기" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-2.5 sm:p-4 flex flex-col justify-end text-white"><p class="font-bold text-[10px] sm:text-sm">왕십리점 구매고객</p></div>
                     </div>
                     <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 relative group shadow-sm flex-shrink-0">
-                        <img src="https://COBI-P.github.io/GP/images/DMC.JPG" alt="DMC점 후기" class="w-full h-full object-cover">
+                        <img src="https://COBI-P.github.io/GP/images/DMC.jpg" alt="DMC점 후기" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-2.5 sm:p-4 flex flex-col justify-end text-white"><p class="font-bold text-[10px] sm:text-sm">DMC점 구매고객</p></div>
                     </div>
                     <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 relative group shadow-sm flex-shrink-0">
-                        <img src="https://COBI-P.github.io/GP/images/GS.JPG" alt="가산점 후기" class="w-full h-full object-cover">
+                        <img src="https://COBI-P.github.io/GP/images/GS.jpg" alt="가산점 후기" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-2.5 sm:p-4 flex flex-col justify-end text-white"><p class="font-bold text-[10px] sm:text-sm">가산점 구매고객</p></div>
                     </div>
                     <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 relative group shadow-sm flex-shrink-0">
-                        <img src="https://COBI-P.github.io/GP/images/DS.JPG" alt="다산점 후기" class="w-full h-full object-cover">
+                        <img src="https://COBI-P.github.io/GP/images/DS.jpg" alt="다산점 후기" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-2.5 sm:p-4 flex flex-col justify-end text-white"><p class="font-bold text-[10px] sm:text-sm">다산점 구매고객</p></div>
                     </div>
                     <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 relative group shadow-sm flex-shrink-0">
-                        <img src="https://COBI-P.github.io/GP/images/GD.JPG" alt="검단점 후기" class="w-full h-full object-cover">
+                        <img src="https://COBI-P.github.io/GP/images/GD.jpg" alt="검단점 후기" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-2.5 sm:p-4 flex flex-col justify-end text-white"><p class="font-bold text-[10px] sm:text-sm">검단점 구매고객</p></div>
                     </div>
                     <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 relative group shadow-sm flex-shrink-0">
-                        <img src="https://COBI-P.github.io/GP/images/SJ.JPG" alt="세종점 후기" class="w-full h-full object-cover">
+                        <img src="https://COBI-P.github.io/GP/images/SJ.jpg" alt="세종점 후기" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-2.5 sm:p-4 flex flex-col justify-end text-white"><p class="font-bold text-[10px] sm:text-sm">세종점 구매고객</p></div>
                     </div>
                     <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 relative group shadow-sm flex-shrink-0">
-                        <img src="https://COBI-P.github.io/GP/images/CJ.JPG" alt="청주점 후기" class="w-full h-full object-cover">
+                        <img src="https://COBI-P.github.io/GP/images/CJ.jpg" alt="청주점 후기" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-2.5 sm:p-4 flex flex-col justify-end text-white"><p class="font-bold text-[10px] sm:text-sm">청주점 구매고객</p></div>
                     </div>
                     <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 relative group shadow-sm flex-shrink-0">
-                        <img src="https://COBI-P.github.io/GP/images/AS.JPG" alt="아산점 후기" class="w-full h-full object-cover">
+                        <img src="https://COBI-P.github.io/GP/images/AS.jpg" alt="아산점 후기" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-2.5 sm:p-4 flex flex-col justify-end text-white"><p class="font-bold text-[10px] sm:text-sm">아산점 구매고객</p></div>
                     </div>
                 </div>
                 
-                <!-- 끊김 없는 무한 롤링 루프를 위한 9개 지점 복제 세트 -->
                 <div class="flex gap-3 sm:gap-6" aria-hidden="true">
-                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/CD.JPG" class="w-full h-full object-cover"></div>
-                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/WS.JPG" class="w-full h-full object-cover"></div>
-                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/DMC.JPG" class="w-full h-full object-cover"></div>
-                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/GS.JPG" class="w-full h-full object-cover"></div>
-                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/DS.JPG" class="w-full h-full object-cover"></div>
-                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/GD.JPG" class="w-full h-full object-cover"></div>
-                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/SJ.JPG" class="w-full h-full object-cover"></div>
-                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/CJ.JPG" class="w-full h-full object-cover"></div>
-                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/AS.JPG" class="w-full h-full object-cover"></div>
+                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/CD.jpg" class="w-full h-full object-cover"></div>
+                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/WS.jpg" class="w-full h-full object-cover"></div>
+                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/DMC.jpg" class="w-full h-full object-cover"></div>
+                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/GS.jpg" class="w-full h-full object-cover"></div>
+                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/DS.jpg" class="w-full h-full object-cover"></div>
+                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/GD.jpg" class="w-full h-full object-cover"></div>
+                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/SJ.jpg" class="w-full h-full object-cover"></div>
+                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/CJ.jpg" class="w-full h-full object-cover"></div>
+                    <div class="w-36 h-36 sm:w-64 sm:h-64 bg-gray-100 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0"><img src="https://COBI-P.github.io/GP/images/AS.jpg" class="w-full h-full object-cover"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. 특징 안내 섹션 -->
     <section id="who-we-are" class="py-12 bg-gray-50 px-4">
         <div class="max-w-3xl mx-auto text-center">
             <h2 class="text-xl sm:text-3xl font-bold mb-4 text-gray-900 break-keep">판매 조건이 정말 동일한지 꼭 확인하세요!</h2>
@@ -185,7 +176,6 @@
         </div>
     </section>
 
-    <!-- 6. 매장 안내 섹션 -->
     <section id="stores" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-8">
             <h2 class="text-2xl sm:text-3xl font-bold mb-2 text-gray-900">굳폰 전국 직영 매장 안내</h2>
@@ -193,7 +183,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            <!-- 1. 창동점 -->
             <div class="bg-white rounded-2xl p-5 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition shadow-sm">
                 <div>
                     <div class="flex justify-between items-center mb-2.5">
@@ -212,7 +201,6 @@
                 </div>
             </div>
 
-            <!-- 2. DMC점 -->
             <div class="bg-white rounded-2xl p-5 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition shadow-sm">
                 <div>
                     <div class="flex justify-between items-center mb-2.5">
@@ -231,7 +219,6 @@
                 </div>
             </div>
 
-            <!-- 3. 왕십리점 -->
             <div class="bg-white rounded-2xl p-5 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition shadow-sm">
                 <div>
                     <div class="flex justify-between items-center mb-2.5">
@@ -250,7 +237,6 @@
                 </div>
             </div>
 
-            <!-- 4. 가산점 -->
             <div class="bg-white rounded-2xl p-5 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition shadow-sm">
                 <div>
                     <div class="flex justify-between items-center mb-2.5">
@@ -269,7 +255,6 @@
                 </div>
             </div>
 
-            <!-- 5. 다산점 -->
             <div class="bg-white rounded-2xl p-5 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition shadow-sm">
                 <div>
                     <div class="flex justify-between items-center mb-2.5">
@@ -288,7 +273,6 @@
                 </div>
             </div>
 
-            <!-- 6. 검단점 -->
             <div class="bg-white rounded-2xl p-5 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition shadow-sm">
                 <div>
                     <div class="flex justify-between items-center mb-2.5">
@@ -307,7 +291,6 @@
                 </div>
             </div>
 
-            <!-- 7. 세종점 -->
             <div class="bg-white rounded-2xl p-5 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition shadow-sm">
                 <div>
                     <div class="flex justify-between items-center mb-2.5">
@@ -326,11 +309,10 @@
                 </div>
             </div>
 
-            <!-- 8. 청주점 -->
             <div class="bg-white rounded-2xl p-5 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition shadow-sm">
                 <div>
                     <div class="flex justify-between items-center mb-2.5">
-                        <span class="text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">충북</span>
+                        <span class="text-[10px] font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">충북</span>
                         <a href="tel:010-2684-0294" class="text-[11px] text-gray-400 hover:text-gray-900 transition"><i class="fa-solid fa-phone mr-0.5"></i>010-2684-0294</a>
                     </div>
                     <h3 class="text-lg font-bold mb-1.5 text-gray-900">굳폰 청주점</h3>
@@ -345,7 +327,6 @@
                 </div>
             </div>
 
-            <!-- 9. 아산점 -->
             <div class="bg-white rounded-2xl p-5 border border-gray-200 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition shadow-sm">
                 <div>
                     <div class="flex justify-between items-center mb-2.5">
@@ -367,7 +348,6 @@
         </div>
     </section>
 
-    <!-- 7. 푸터 -->
     <footer class="bg-gray-100 border-t border-gray-200 text-gray-500 text-[10px] sm:text-xs py-8">
         <div class="max-w-7xl mx-auto px-4 text-center space-y-1">
             <p class="break-keep">상호명 | 주식회사 피엔지컴퍼니 &nbsp;|&nbsp; 대표자 | 박시훈 &nbsp;|&nbsp; 사업자등록번호 | 854-88-02005</p>
@@ -375,7 +355,6 @@
         </div>
     </footer>
 
-    <!-- 8. 플로팅 버튼 그룹 -->
     <div class="fixed top-1/2 -translate-y-1/2 right-3 sm:right-5 z-50 flex flex-col gap-3">
         <a href="https://www.instagram.com/goodphone_sungji/" target="_blank" class="flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white rounded-full shadow-xl hover:scale-110 transition duration-300">
             <i class="fa-brands fa-instagram text-lg sm:text-2xl"></i>
@@ -385,7 +364,6 @@
         </a>
     </div>
 
-    <!-- 9. 실시간 팝업 알림 토스트 레이아웃 -->
     <div id="live-toast" class="fixed bottom-4 left-3 right-3 sm:left-6 sm:right-auto z-50 max-w-none sm:max-w-sm bg-gray-900/95 backdrop-blur-md text-white rounded-xl p-3.5 shadow-xl border border-gray-800 flex items-center gap-2.5 opacity-0 pointer-events-none transition-all duration-300">
         <div class="w-8 h-8 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center text-gray-950 font-bold flex-shrink-0">
             <i class="fa-solid fa-circle-check text-white text-sm"></i>
@@ -400,7 +378,6 @@
         </div>
     </div>
 
-    <!-- 🔄 날짜 기반 고정 변형이 탑재된 지능형 마케팅 엔진 스크립트 -->
     <script>
         const now = new Date();
         const year = now.getFullYear();
@@ -408,7 +385,7 @@
         const day = now.getDate();
         const hours = now.getHours();
 
-        // 날짜 동기화 알고리즘
+        // 🌟 접속 시간대와 날짜 데이터를 연산하여 지구상 모든 유저의 기본 숫자를 완전 고정합니다.
         const dateSeed = (year * 3) + (month * 25) + (day * 7); 
         let baseConsult = 80 + (dateSeed % 35) + (hours * 11); 
 
@@ -417,7 +394,7 @@
 
         const stores = ["창동점", "DMC점", "왕십리점", "가산점", "다산점", "검단점", "세종점", "청주점", "아산점"];
         
-        // 기종 리스트
+        // 📱 기종 완벽 리스트
         const mainProducts = ["S26U", "S26U 512G", "아이폰17프로", "아이폰17프로맥스", "S26 512G", "Z플립7"]; 
         const subProducts = ["S26", "S26+", "S26+ 512G", "S25 엣지", "Z폴드7", "아이폰17", "아이폰 에어", "갤럭시 A17", "퀀텀6"]; 
 
@@ -429,7 +406,7 @@
             "당일 한정 수량 재고 선점 완료"
         ];
 
-        // 지능형 시간 제어
+        // 사람 행동 패턴 제어 로직 (침묵과 폭주 가중치 세팅)
         function getNextDelay() {
             const currentHour = new Date().getHours();
             if (currentHour >= 23 || currentHour < 7) {
@@ -444,6 +421,7 @@
             }
         }
 
+        // 실시간 카운터 및 토스트 알림 작동 메인 루프
         function triggerLiveUpdate() {
             const addCount = Math.random() > 0.4 ? 1 : 2;
             baseConsult += addCount;
