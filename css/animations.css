@@ -1,0 +1,44 @@
+/* ==========================================================
+   animations.css — 슬라이더 / 알림 팝업 애니메이션
+   ========================================================== */
+
+/* 🔄 무한 자동 슬라이더 애니메이션 (9개 매장이 끊김 없이 흐르도록 최적화) */
+@keyframes marquee {
+    0%   { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+.animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 35s linear infinite;
+    will-change: transform;
+}
+.slider-container:hover .animate-marquee {
+    animation-play-state: paused;
+}
+
+/* 🔔 실시간 알림 팝업 등장 애니메이션 (pointer-events 제어로 모바일 먹통 방지) */
+@keyframes slideUpMobile {
+    0%   { transform: translate3d(0, 30px, 0) scale(0.95); opacity: 0; pointer-events: none; }
+    4%   { transform: translate3d(0, 0, 0)  scale(1);    opacity: 1; pointer-events: auto; }
+    90%  { transform: translate3d(0, 0, 0)  scale(1);    opacity: 1; pointer-events: auto; }
+    100% { transform: translate3d(0, -15px, 0) scale(0.95); opacity: 0; pointer-events: none; }
+}
+.toast-active {
+    animation: slideUpMobile 5s ease-in-out forwards;
+}
+
+/* ♿ 애니메이션 민감 사용자 설정(prefers-reduced-motion) 대응
+   - 슬라이더: 자동 흐름 정지
+   - 알림 팝업: 움직임 없이 표시만 (사라지는 건 live-toast.js 타이머가 처리) */
+@media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+        animation: none;
+    }
+    .toast-active {
+        animation: none;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+    }
+}
